@@ -1,0 +1,782 @@
+<title>GH 도민주주단 정책토론회 자료집</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700;900&display=swap">
+<style>
+/* Layout: A4 세로 낱장(794×1123px = 210×297mm)을 회색 책상 위에 쌓은 인쇄용 자료집. 좁은 화면에서는 낱장이 유동 폭으로 풀림. 종이 한 가지 톤으로 고정(single light). */
+:root{
+  --desk:#e6e9ed;
+  --paper:#ffffff;
+  --ink:#1b2433;
+  --muted:#5a6575;
+  --line:#d6dce4;
+  --tint:#edf4f2;
+  --teal:#0b6e64;      /* 주조색: 공공·숙의 */
+  --teal-deep:#08483f;
+  --amber:#e39a1a;     /* 내 지분 · (가) 방식 */
+  --amber-soft:#fbefd8;
+  --slate:#4767a8;     /* (나) 방식 · 대비 */
+  --slate-soft:#e5ebf6;
+  --public:#c9d3de;    /* 공공 지분 */
+  --serif:"Noto Serif KR","Nanum Myeongjo",serif;
+  --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--sans);font-size:13px;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px}
+.book{display:flex;flex-direction:column;align-items:center;gap:28px}
+.page{background:var(--paper);width:794px;max-width:100%;min-height:1123px;position:relative;padding:62px 64px 70px;box-shadow:0 1px 2px rgba(27,36,51,.08),0 8px 24px rgba(27,36,51,.08);display:flex;flex-direction:column;gap:18px;overflow:hidden}
+.page>*{flex-shrink:0}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+
+/* 러닝헤더·푸터 */
+.run{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:10px;font-size:11px;color:var(--muted);letter-spacing:.02em}
+.run b{color:var(--teal);font-weight:700}
+.foot{position:absolute;left:64px;right:64px;bottom:28px;display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted)}
+.foot .pg{font-weight:700;color:var(--ink)}
+.chap{display:flex;align-items:flex-end;gap:14px;margin-top:6px}
+.chap .no{font-family:var(--serif);font-size:44px;line-height:1;color:var(--teal);font-weight:900}
+.chap h2{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1.25}
+.chap .en{font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:3px}
+h3.sec{font-size:15.5px;font-weight:700;display:flex;align-items:center;gap:8px;margin-top:4px}
+h3.sec::before{content:"";width:6px;height:16px;background:var(--teal);border-radius:1px;flex:none}
+.lead{color:var(--muted);font-size:12.5px}
+.note{font-size:11px;color:var(--muted)}
+.draft{font-size:11px;color:#8a5a00;background:var(--amber-soft);border:1px dashed var(--amber);padding:7px 10px;border-radius:4px}
+
+/* 표 */
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:middle;text-align:left}
+thead th{background:var(--teal);color:#fff;font-weight:700;text-align:center;border-color:var(--teal)}
+tbody th{background:var(--tint);font-weight:700;white-space:nowrap}
+td.c,th.c{text-align:center}
+.tt td.time{white-space:nowrap;font-variant-numeric:tabular-nums;text-align:center}
+.tt tr.part td{border-top:2px solid var(--teal)}
+.tt .dur{display:block;font-size:11px;color:var(--muted)}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--tint);color:var(--teal-deep);white-space:nowrap}
+.tag.amber{background:var(--amber-soft);color:#8a5a00}
+.tw{overflow-x:auto}
+
+/* 표지 */
+.cover{padding:0;background:var(--teal-deep);color:#fff;justify-content:space-between}
+.cover .top{padding:64px 64px 0;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.12em;opacity:.85}
+.cover .mid{padding:0 64px;display:flex;flex-direction:column;gap:22px}
+.cover .kicker{font-size:15px;letter-spacing:.06em;color:#bfe3dc}
+.cover h1{font-family:var(--serif);font-size:50px;line-height:1.2;font-weight:900}
+.cover h1 small{display:block;font-size:24px;font-weight:600;margin-bottom:10px;color:#d8efe9}
+.cover .q{font-size:17px;line-height:1.6;border-left:3px solid var(--amber);padding-left:14px;max-width:520px}
+.cover .bars{display:flex;gap:6px;align-items:flex-end;height:150px;padding:0 64px}
+.cover .bars i{flex:1;background:var(--amber);border-radius:2px 2px 0 0}
+.cover .bars i.p{background:rgba(255,255,255,.14)}
+.cover .meta{background:#fff;color:var(--ink);padding:26px 64px 34px;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:13.5px}
+.cover .meta dt{color:var(--muted);font-weight:500}
+.cover .meta dd{margin:0;font-weight:700}
+.cover .org{grid-column:1/-1;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 18px}
+.cover .org b{color:var(--ink)}
+
+/* 목차 */
+.toc{display:grid;grid-template-columns:1fr;border-top:2px solid var(--ink)}
+.toc a{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.toc .n{font-family:var(--serif);font-weight:900;color:var(--teal);font-size:18px}
+.toc .t{font-size:15px;font-weight:700}
+.toc .t small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+.toc .p{font-variant-numeric:tabular-nums;color:var(--muted)}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:13px}
+.facts dt{font-weight:700;color:var(--teal-deep)}
+.facts dd{margin:0}
+.topic{background:var(--tint);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.topic .lbl{font-size:11px;letter-spacing:.1em;color:var(--teal);font-weight:700}
+.topic p{font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.45}
+
+/* 흐름도 */
+.flow{display:grid;grid-template-columns:1fr 16px 1.6fr 16px 1fr 16px 1fr;align-items:stretch}
+.flow .st{border:1.5px solid var(--teal);border-radius:6px;padding:12px 12px 10px;display:flex;flex-direction:column;gap:4px;background:#fff}
+.flow .st.hl{background:var(--tint)}
+.flow .st .min{font-size:11px;font-weight:700;color:var(--teal);font-variant-numeric:tabular-nums}
+.flow .st h4{margin:0;font-size:14.5px}
+.flow .st p{font-size:11.5px;color:var(--muted);line-height:1.5}
+.flow .ar{align-self:center;justify-self:center;width:0;height:0;border-left:8px solid var(--teal);border-top:6px solid transparent;border-bottom:6px solid transparent}
+.sub2{display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-top:4px}
+.sub2 div{background:#fff;border:1px solid var(--line);border-radius:4px;padding:5px 7px;font-size:11px;line-height:1.4}
+.sub2 b{display:block;font-size:11.5px}
+.timebar{display:flex;height:22px;border-radius:3px;overflow:hidden;font-size:10.5px;color:#fff;font-weight:700}
+.timebar span{display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.checks{display:flex;flex-direction:column;gap:7px;padding:0;margin:0;list-style:none}
+.checks li{display:grid;grid-template-columns:18px 1fr;gap:6px;font-size:12.8px}
+.checks li::before{content:"✓";color:var(--teal);font-weight:900}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.box{border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.box h4{margin:0;font-size:14px;display:flex;align-items:center;gap:8px}
+.box h4 .tag{font-size:10px}
+.qcat{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.qcat div{background:var(--tint);border-radius:4px;padding:8px;text-align:center;font-size:11.5px;font-weight:700;color:var(--teal-deep)}
+.qcat div small{display:block;font-weight:400;color:var(--muted);font-size:10.5px}
+
+/* 규칙 */
+.rule{display:grid;grid-template-columns:110px 1fr;border-top:1px solid var(--line)}
+.rule:last-child{border-bottom:1px solid var(--line)}
+.rule .k{padding:14px 0;display:flex;flex-direction:column;gap:2px}
+.rule .k b{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--teal-deep)}
+.rule .k span{font-size:11px;color:var(--muted)}
+.rule ul{margin:0;padding:14px 0 14px 18px;display:flex;flex-direction:column;gap:5px;font-size:12.8px}
+.rule ul li::marker{color:var(--teal)}
+.big{font-weight:900;color:var(--teal)}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.promise div{border-top:3px solid var(--amber);background:var(--amber-soft);padding:12px 12px;border-radius:0 0 6px 6px;font-size:12.5px;display:flex;flex-direction:column;gap:4px}
+.promise div b{font-size:13.5px}
+
+/* 차트 */
+.insight{background:var(--tint);border-left:4px solid var(--teal);padding:12px 14px;border-radius:0 6px 6px 0;font-size:12.6px;display:flex;flex-direction:column;gap:4px}
+.insight b{color:var(--teal-deep)}
+.chart{display:flex;flex-direction:column;gap:6px}
+.chart h4{margin:0 0 2px;font-size:13px}
+.chart h4 small{font-weight:400;color:var(--muted);font-size:11px;margin-left:4px}
+.bar{display:grid;grid-template-columns:var(--lw,150px) 1fr 86px;gap:8px;align-items:center;font-size:12px}
+.bar .l{line-height:1.3}
+.bar .t{height:14px;background:#f1f3f6;border-radius:2px;position:relative}
+.bar .t i{position:absolute;inset:0 auto 0 0;background:var(--teal);border-radius:2px}
+.bar.top .t i{background:var(--teal-deep)}
+.bar.a .t i{background:var(--amber)}
+.bar.b .t i{background:var(--slate)}
+.bar.g .t i{background:#aab4c1}
+.bar .v{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.bar .v b{font-weight:700}
+.bar .v span{color:var(--muted);font-size:11px}
+.stack{display:flex;height:30px;border-radius:3px;overflow:hidden;font-size:11px;font-weight:700;color:#fff}
+.stack span{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpi{border:1px solid var(--line);border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:2px}
+.kpi .k{font-size:11px;color:var(--muted)}
+.kpi .v{font-size:24px;font-weight:900;color:var(--teal-deep);font-variant-numeric:tabular-nums;line-height:1.2}
+.kpi .v small{font-size:13px;font-weight:700}
+.kpi .s{font-size:11px;color:var(--muted)}
+.xt th,.xt td{text-align:center;font-variant-numeric:tabular-nums;padding:6px 8px;font-size:12px}
+.xt tbody th{text-align:left}
+.xt td.hi{background:var(--amber-soft);font-weight:700}
+.voices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.voice{border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.voice h4{margin:0;font-size:13.5px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.voice h4 span{font-size:11px;color:var(--muted);font-weight:500;white-space:nowrap}
+.voice.a{border-top:3px solid var(--amber)}
+.voice.b{border-top:3px solid var(--slate)}
+.voice.t{border-top:3px solid var(--teal)}
+.voice ul{margin:0;padding-left:16px;font-size:12px;display:flex;flex-direction:column;gap:3px}
+.voice q{display:block;font-size:11.5px;color:var(--muted);quotes:"“" "”"}
+.issues{display:flex;flex-direction:column;gap:8px}
+.issue{display:grid;grid-template-columns:92px 1fr;gap:12px;border:1px solid var(--line);border-radius:6px;padding:11px 14px;align-items:start}
+.issue b{font-family:var(--serif);font-size:15px;color:var(--teal-deep)}
+.issue p{font-size:12.5px}
+.issue p small{display:block;color:var(--muted);font-size:11.5px}
+
+/* 발표자료(인포그래픽) */
+.src{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:7px 10px}
+.hero{background:var(--teal-deep);color:#fff;border-radius:8px;padding:26px 26px 22px;display:flex;flex-direction:column;gap:10px}
+.hero .lbl{font-size:11px;letter-spacing:.12em;color:#bfe3dc}
+.hero h3{font-family:var(--serif);font-size:30px;line-height:1.35;font-weight:900}
+.hero h3 em{font-style:normal;color:var(--amber)}
+.hero p{font-size:13px;color:#e0f1ed;max-width:560px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.trio div{border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:2px}
+.trio .k{font-size:11.5px;color:var(--muted)}
+.trio .v{font-size:28px;font-weight:900;color:var(--teal-deep);line-height:1.2;font-variant-numeric:tabular-nums}
+.trio .v small{font-size:14px;font-weight:700;margin-left:2px}
+.trio .s{font-size:11px;color:var(--muted)}
+.pay{display:grid;grid-template-columns:1fr 24px 1fr 24px 1fr;align-items:stretch}
+.pay .plus{align-self:center;text-align:center;font-size:20px;font-weight:900;color:var(--muted)}
+.pay div.c{border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:4px;background:var(--tint)}
+.pay div.c .i{font-size:11px;font-weight:700;color:var(--teal)}
+.pay div.c b{font-size:15px}
+.pay div.c p{font-size:11.8px;color:var(--muted);line-height:1.5}
+.pay div.c.me{background:var(--amber-soft)}
+.pay div.c.me .i{color:#8a5a00}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.steps div{padding:14px 12px;border-top:4px solid var(--teal);display:flex;flex-direction:column;gap:3px;position:relative}
+.steps div:nth-child(2){border-color:#2c8a7f}.steps div:nth-child(3){border-color:#58a59b}.steps div:nth-child(4){border-color:var(--amber)}
+.steps .s{font-size:10.5px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+.steps b{font-size:16px}
+.steps p{font-size:11.8px;color:var(--muted);line-height:1.5}
+.alert{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.alert div{border:1.5px solid var(--amber);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.alert b{font-size:14px;color:#8a5a00}
+.alert p{font-size:12px}
+svg text{font-family:var(--sans)}
+.cmp td{font-size:12.2px}
+.cmp td b{font-size:13px}
+.gloss{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+.gloss div{padding:6px 0;border-bottom:1px solid var(--line);font-size:12px;display:flex;flex-direction:column;gap:2px}
+.gloss b{font-size:13px;color:var(--teal-deep)}
+
+@media screen and (max-width:860px){
+  body{padding-block:16px}
+  .page{min-height:0;padding:28px 18px 54px;gap:16px}
+  .foot{left:18px;right:18px;bottom:16px}
+  .cover .top,.cover .mid,.cover .bars,.cover .meta{padding-left:18px;padding-right:18px}
+  .cover h1{font-size:34px}.cover h1 small{font-size:18px}
+  .two,.voices,.alert,.gloss,.promise{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .trio{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr;gap:8px}
+  .flow .ar{transform:rotate(90deg)}
+  .pay{grid-template-columns:1fr;gap:6px}
+  .steps{grid-template-columns:1fr 1fr}
+  .qcat{grid-template-columns:1fr 1fr}
+  .bar{grid-template-columns:110px 1fr 74px;--lw:110px}
+  .rule{grid-template-columns:1fr}.rule ul{padding-top:0}
+  .issue{grid-template-columns:1fr}
+  .chap .no{font-size:34px}.chap h2{font-size:21px}
+  .hero h3{font-size:23px}
+}
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff;padding:0}
+  .book{gap:0;display:block}
+  .page{box-shadow:none;width:210mm;height:297mm;min-height:0;page-break-after:always;break-after:page}
+  .page:last-child{page-break-after:auto}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+
+<div class="book">
+
+<!-- 1. 표지 -->
+<section class="page cover" id="cover">
+  <div class="top"><span>2026 GH 도민주주단</span><span>정책토론회 자료집</span></div>
+  <div class="mid">
+    <div class="kicker">경기주택도시공사 제2기 도민주주단</div>
+    <h1><small>「제1회 정책토론회」</small>지분적립형<br>분양주택,<br>도민이 고르다</h1>
+    <p class="q">도민이 가장 선택하고 싶어할<br>지분적립형 분양주택의 모습은?</p>
+  </div>
+  <div class="bars" aria-hidden="true">
+    <i style="height:25%"></i><i class="p" style="height:100%"></i>
+    <i style="height:45%"></i><i class="p" style="height:100%"></i>
+    <i style="height:65%"></i><i class="p" style="height:100%"></i>
+    <i style="height:85%"></i><i class="p" style="height:100%"></i>
+    <i style="height:100%"></i>
+  </div>
+  <dl class="meta">
+    <dt>일시</dt><dd class="num">2026. 11. 3.(화) 14:00~16:00 <span style="font-weight:400;color:var(--muted)">(등록 13:30~)</span></dd>
+    <dt>장소</dt><dd>수원컨벤션센터 407·408호</dd>
+    <dt>견학</dt><dd>16:00~17:00 홍보관(A17 모델하우스) <span style="font-weight:400;color:var(--muted)">· GH 진행</span></dd>
+    <div class="org"><span>주최 <b>경기주택도시공사</b> 홍보실 고객소통부</span><span>운영 <b>코리아스픽스(주)</b> · (사)한국퍼실리테이터연합회 경기지회</span></div>
+  </dl>
+</section>
+
+<!-- 2. 목차·개요 -->
+<section class="page" id="overview">
+  <div class="run"><span><b>목차 · 토론회 개요</b></span><span>GH 제2기 도민주주단 「제1회 정책토론회」</span></div>
+  <div class="chap"><h2>목차</h2></div>
+  <nav class="toc">
+    <a href="#overview"><span class="n">00</span><span class="t">토론회 개요</span><span class="p">2</span></a>
+    <a href="#timetable"><span class="n">01</span><span class="t">진행 순서<small>타임테이블</small></span><span class="p">3</span></a>
+    <a href="#flow"><span class="n">02</span><span class="t">토론 흐름과 규칙<small>흐름 안내 · 질의응답 · 무선투표 · 입론과 상호토론</small></span><span class="p">4</span></a>
+    <a href="#survey"><span class="n">03</span><span class="t">사전조사 결과<small>응답자 특성 · 필요성과 장단점 · 세 가지 조건 · GH의 역할</small></span><span class="p">6</span></a>
+    <a href="#learn"><span class="n">04</span><span class="t">발표자료<small>지분적립형 분양주택 제도와 조건별 특징 (GH 주거전략부)</small></span><span class="p">11</span></a>
+  </nav>
+  <div class="chap" style="margin-top:2px"><span class="no">00</span><div><div class="en">Overview</div><h2>토론회 개요</h2></div></div>
+  <div class="topic"><span class="lbl">토론주제</span><p>도민이 가장 선택하고 싶어할<br>지분적립형 분양주택의 모습은?</p></div>
+  <div class="tw"><table>
+    <thead><tr><th style="width:120px">조건</th><th>선택지</th></tr></thead>
+    <tbody>
+      <tr><th>① 취득방식</th><td><span class="tag amber">가</span> 초기에 많은 지분을 취득하고 점차 줄여가는 방식 <span class="num note">(25%–20%–20%–20%–15%)</span><br><span class="tag" style="background:var(--slate-soft);color:var(--slate)">나</span> 초기에 적은 지분을 취득하고 점차 늘려가는 방식 <span class="num note">(25%–15%–15%–20%–25%)</span></td></tr>
+      <tr><th>② 면적</th><td>(가) 전용 40㎡ 미만 &nbsp;·&nbsp; (나) 40㎡ 이상 60㎡ 미만 &nbsp;·&nbsp; (다) 60㎡ 이상 85㎡ 미만</td></tr>
+      <tr><th>③ 지역</th><td>(가) 새로 개발되는 신도시 &nbsp;·&nbsp; (나) 구도심</td></tr>
+    </tbody>
+  </table></div>
+  <dl class="facts">
+    <dt>목적</dt><dd>세 가지 조건(취득방식·면적·지역)에 대한 도민 선호와 그 이유를 확인하고, 제도가 자리 잡기 위해 GH가 먼저 해야 할 일을 도출합니다.</dd>
+    <dt>참여</dt><dd>제2기 GH 도민주주단 (1기 주주·일반 도민·고객대표) · 테이블당 7명 내외</dd>
+    <dt>진행 방식</dt><dd>학습(GH 발표) → 그룹토론(입론·상호토론) → 전체토론 → 토론 후 조사</dd>
+    <dt>결과 활용</dt><dd>조건별 선호와 이유, 「GH가 먼저 해야 할 일」을 정리해 지분적립형 분양주택 공급·홍보 계획의 근거로 제공합니다.</dd>
+  </dl>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">2</span></div>
+</section>
+
+<!-- 3. 타임테이블 -->
+<section class="page" id="timetable">
+  <div class="run"><span><b>01 진행 순서</b></span><span>2026. 11. 3.(화) · 수원컨벤션센터 407·408호</span></div>
+  <div class="chap"><span class="no">01</span><div><div class="en">Timetable</div><h2>진행 순서</h2></div></div>
+  <div class="tw"><table class="tt">
+    <thead><tr><th style="width:74px">구분</th><th style="width:118px">시간</th><th>내용</th><th style="width:140px">진행</th></tr></thead>
+    <tbody>
+      <tr><th class="c">식전</th><td class="time">13:30~14:00<span class="dur">30′</span></td><td>참가자 등록 · 명찰·자료집 배부<br>테이블 안내 · 다과</td><td>운영요원</td></tr>
+      <tr class="part"><th class="c" rowspan="3">개회</th><td class="time">14:00~14:03<span class="dur">3′</span></td><td>GH 홍보 동영상</td><td>GH 홍보실</td></tr>
+      <tr><td class="time">14:03~14:10<span class="dur">7′</span></td><td>개회 선언, 국민의례 및 행사 안내 <span class="tag amber">국민의례 포함 여부 GH 확인 중</span></td><td>사회(리딩 퍼실리테이터)</td></tr>
+      <tr><td class="time">14:10~14:20<span class="dur">10′</span></td><td>환영사 · 단체사진 촬영</td><td>경기주택도시공사 사장</td></tr>
+      <tr class="part"><th class="c" rowspan="3">토론</th><td class="time">14:20~14:30<span class="dur">10′</span></td><td>토론 안내(진행 순서·규칙) · 사전조사 결과 보고</td><td>사회(리딩 퍼실리테이터)</td></tr>
+      <tr><td class="time">14:30~15:00<span class="dur">30′</span></td><td><b>발표 및 질의응답</b><br>지분적립형 분양주택 제도와 조건별 특징<br><span class="note">발표 20′ · 질의응답 10′(2~3개)</span></td><td>GH 주거전략부장</td></tr>
+      <tr><td class="time">15:00~15:50<span class="dur">50′</span></td><td><b>토론</b><br>그룹토론 30′(입론 20′ · 상호토론 10′) → 전체토론 15′ → 토론 후 조사 5′</td><td>리딩·소그룹 퍼실리테이터</td></tr>
+      <tr class="part"><th class="c">폐회</th><td class="time">15:50~16:00<span class="dur">10′</span></td><td>토론 결과 공유 · 만족도 조사 · 폐회 · 기념품 배부</td><td>사회(리딩 퍼실리테이터)</td></tr>
+      <tr class="part"><th class="c" rowspan="2">견학</th><td class="time">16:00~16:30<span class="dur">30′</span></td><td>홍보관 이동 (수원컨벤션센터 → 홍보관, 버스)</td><td>GH</td></tr>
+      <tr><td class="time">16:30~17:00<span class="dur">30′</span></td><td>홍보관(A17 모델하우스) 견학</td><td>GH 주택분양부</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">※ 현장 상황에 따라 시간이 일부 조정될 수 있습니다. 홍보관 견학과 버스 이동·주차는 GH에서 안내합니다.</div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">3</span></div>
+</section>
+
+<!-- 4. 토론 흐름 -->
+<section class="page" id="flow">
+  <div class="run"><span><b>02 토론 흐름과 규칙</b></span><span>흐름 안내</span></div>
+  <div class="chap"><span class="no">02</span><div><div class="en">Deliberation Flow</div><h2>토론 흐름과 규칙</h2></div></div>
+  <h3 class="sec">흐름 안내 | 학습에서 선택까지</h3>
+  <p class="lead">GH 발표로 제도를 함께 이해한 뒤, 세 가지 조건 가운데 내가 고르는 조합과 그 이유를 중심으로 이야기를 나눕니다.</p>
+  <div class="flow">
+    <div class="st"><span class="min">14:30 · 30′</span><h4>학습</h4><p>GH 발표 20′<br>질의응답 10′</p></div>
+    <span class="ar"></span>
+    <div class="st hl"><span class="min">15:00 · 30′</span><h4>그룹토론</h4>
+      <div class="sub2"><div><b>입론 20′</b>1인 1분 30초, 순서대로 내가 고른 조합과 이유</div><div><b>상호토론 10′</b>선택이 갈린 지점</div></div></div>
+    <span class="ar"></span>
+    <div class="st"><span class="min">15:30 · 15′</span><h4>전체토론</h4><p>테이블 의견 화면 공유, 쟁점별 대표 발언</p></div>
+    <span class="ar"></span>
+    <div class="st"><span class="min">15:45 · 5′</span><h4>토론 후 조사</h4><p>무선 투표로 조건별 최종 선호 확인</p></div>
+  </div>
+  <div class="timebar num" aria-label="토론 50분 시간 배분">
+    <span style="flex:20;background:var(--teal-deep)">입론 20′</span>
+    <span style="flex:10;background:var(--teal)">상호 10′</span>
+    <span style="flex:15;background:#58a59b">전체토론 15′</span>
+    <span style="flex:5;background:var(--amber)">5′</span>
+  </div>
+  <div class="two">
+    <div class="box">
+      <h4>발표에 대한 질의응답 <span class="tag">QR 상시 접수</span></h4>
+      <ul class="checks">
+        <li>자리의 QR코드로 언제든 질문을 남길 수 있습니다.</li>
+        <li>접수된 질문은 아래 네 가지로 분류하고, 중요도 순으로 2~3개를 골라 발표 직후 답변합니다.</li>
+      </ul>
+      <div class="qcat"><div>개념·용어<small>뜻이 궁금해요</small></div><div>사실 확인<small>맞나요?</small></div><div>추가 질문<small>더 알고 싶어요</small></div><div>반론<small>생각이 달라요</small></div></div>
+      <ul class="checks">
+        <li>현장에서 답하지 못한 질문은 결과보고서에 Q&amp;A로 정리해 공유합니다.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4>토론 후 조사 <span class="tag">무선 투표기</span></h4>
+      <ul class="checks">
+        <li>토론을 마친 뒤 세 가지 조건에 대한 최종 선호를 무선 투표기로 묻습니다.</li>
+        <li>사전조사 결과와 비교해, 토론을 거치며 생각이 어떻게 달라졌는지 함께 확인합니다.</li>
+        <li>정답은 없습니다. 내 생각을 그대로 눌러 주세요.</li>
+        <li>화면 오른쪽 위에 <b>OK</b> 표시가 떠야 응답이 전송된 것입니다.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">※ 시간이 부족할 경우 전체토론을 결과 화면 공유와 무선 투표로 줄이고, 그룹토론 30분은 그대로 진행합니다.</div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">4</span></div>
+</section>
+
+<!-- 5. 규칙 -->
+<section class="page" id="rules">
+  <div class="run"><span><b>02 토론 흐름과 규칙</b></span><span>규칙 안내</span></div>
+  <h3 class="sec">규칙 안내 | 그룹토론과 전체토론</h3>
+  <div>
+    <div class="rule"><div class="k"><b>입론</b><span>그룹토론 · 20′</span></div>
+      <ul>
+        <li>테이블의 모든 분이 돌아가며 한 번씩 발언합니다. 1인당 <span class="big">1분 30초</span>입니다.</li>
+        <li>내가 고른 <b>조건 조합</b>(취득방식·면적·지역)과 <b>그렇게 고른 이유</b>를 말씀해 주세요.</li>
+        <li>추상적인 이야기보다 내 상황(가구 구성, 소득 계획, 사는 곳 등)에 근거한 구체적인 이유가 좋습니다.</li>
+        <li>GH가 해야 할 일에 대해 덧붙일 의견이 있으면 짧게 말씀해 주세요.</li>
+        <li>발언 시간은 소그룹 퍼실리테이터가 관리합니다.</li>
+      </ul></div>
+    <div class="rule"><div class="k"><b>상호토론</b><span>그룹토론 · 10′</span></div>
+      <ul>
+        <li>테이블 안에서 <b>선택이 갈린 조건</b>을 중심으로, 서로의 이유를 묻고 답합니다.</li>
+        <li>보충 의견, 질문과 답변, 반론을 자유롭게 나눕니다.</li>
+        <li>테이블 퍼실리테이터의 진행을 따라 주세요. GH 역할에 대한 의견은 테이블 기록지에 따로 적습니다.</li>
+      </ul></div>
+    <div class="rule"><div class="k"><b>전체토론</b><span>15′</span></div>
+      <ul>
+        <li>테이블별 의견을 화면에 띄우고, 쟁점별로 대표 발언을 듣습니다.</li>
+        <li>서로 다른 선택을 한 분들의 이유를 이어 들으며 차이를 확인합니다.</li>
+      </ul></div>
+  </div>
+  <h3 class="sec" style="margin-top:8px">함께 지킬 약속</h3>
+  <div class="promise">
+    <div><b>순서와 시간 지키기</b>정해진 순서와 1분 30초를 지켜, 모두가 한 번 이상 말할 수 있게 합니다.</div>
+    <div><b>평가하지 않기</b>다른 사람의 선택을 옳다 그르다 평가하지 않고, 이유를 물어봅니다.</div>
+    <div><b>내 상황으로 말하기</b>나의 형편과 경험을 근거로 이유를 말합니다.</div>
+  </div>
+  <div class="box" style="margin-top:4px">
+    <h4>운영 원칙</h4>
+    <ul class="checks">
+      <li>발언이 한쪽으로 쏠리지 않도록 퍼실리테이터가 순서를 조정합니다.</li>
+      <li>개인 분양·민원 사항은 별도 메모지로 받아 GH에 전달하고, 토론은 정책 범위에서 진행합니다.</li>
+      <li>GH 직원은 사실 확인 질문에만 답하며, 테이블 토론에는 참여하지 않습니다.</li>
+      <li>발언은 녹음되며 결과보고서 작성에만 쓰고, 이름 없이 수록합니다.</li>
+    </ul>
+  </div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">5</span></div>
+</section>
+
+<!-- 6. 사전조사 1 -->
+<section class="page" id="survey">
+  <div class="run"><span><b>03 사전조사 결과</b></span><span>조사 개요 · 응답자 특성 · 인지도</span></div>
+  <div class="chap"><span class="no">03</span><div><div class="en">Pre-Survey</div><h2>사전조사 결과</h2></div></div>
+  <div class="draft">초안 메모 · 10. 20.(화) 15시 기준 응답 65명 중간 집계입니다. 조사 마감(10. 23.) 후 최종 수치로 교체합니다.</div>
+  <h3 class="sec">1. 조사 개요</h3>
+  <dl class="facts">
+    <dt>대상</dt><dd>제2기 GH 도민주주단 중 토론회 참석 확정자</dd>
+    <dt>방식</dt><dd>웹 설문(구글 설문지) 자기기입식 조사</dd>
+    <dt>기간</dt><dd class="num">2026. 10. 15.(목) ~ 10. 23.(금)</dd>
+    <dt>내용</dt><dd>응답자 정보, 인지·정보, 필요성·장단점, 선호하는 주택의 모습(세 가지 조건), GH의 역할, 토론회 참여</dd>
+  </dl>
+  <h3 class="sec">2. 응답자 특성 <span class="note" style="font-weight:400">(n=65)</span></h3>
+  <div class="chart">
+    <h4>성별</h4>
+    <div class="stack num"><span style="flex:35;background:var(--teal)">여성 35명 (53.8%)</span><span style="flex:30;background:var(--slate)">남성 30명 (46.2%)</span></div>
+  </div>
+  <div class="chart">
+    <h4>연령대</h4>
+    <div class="stack num">
+      <span style="flex:8;background:#9fd0c8;color:var(--ink)">20대↓ 8</span>
+      <span style="flex:18;background:#58a59b">30대 18</span>
+      <span style="flex:10;background:var(--teal)">40대 10</span>
+      <span style="flex:14;background:#0a5a52">50대 14</span>
+      <span style="flex:15;background:var(--teal-deep)">60세↑ 15</span>
+    </div>
+    <div class="legend num"><span>20대 이하 12.3%</span><span>30대 27.7%</span><span>40대 15.4%</span><span>50대 21.5%</span><span>60세 이상 23.1%</span></div>
+  </div>
+  <div class="chart">
+    <h4>현재 주거 형태</h4>
+    <div class="stack num">
+      <span style="flex:28;background:var(--teal-deep)">자가 28</span>
+      <span style="flex:16;background:var(--teal)">전세 16</span>
+      <span style="flex:11;background:#58a59b">월세 11</span>
+      <span style="flex:9;background:#9fd0c8;color:var(--ink)">가족 9</span>
+      <span style="flex:1;background:#c3cad3"></span>
+    </div>
+    <div class="legend num"><span>자가 43.1%</span><span>전세 24.6%</span><span>월세 16.9%</span><span>부모·가족 소유 주택 13.8%</span><span>기타(공공임대) 1명 1.5%</span></div>
+  </div>
+  <h3 class="sec">3. 지분적립형 분양주택 인지도</h3>
+  <div class="two">
+    <div class="chart" style="--lw:118px">
+      <h4>얼마나 알고 계십니까?</h4>
+      <div class="bar"><span class="l">매우 잘 알고 있다</span><span class="t"><i style="width:12.3%"></i></span><span class="v"><b>8명</b> <span>12.3%</span></span></div>
+      <div class="bar top"><span class="l">어느 정도 알고 있다</span><span class="t"><i style="width:53.8%"></i></span><span class="v"><b>35명</b> <span>53.8%</span></span></div>
+      <div class="bar"><span class="l">이름만 들어봤다</span><span class="t"><i style="width:23.1%"></i></span><span class="v"><b>15명</b> <span>23.1%</span></span></div>
+      <div class="bar g"><span class="l">전혀 모른다</span><span class="t"><i style="width:10.8%"></i></span><span class="v"><b>7명</b> <span>10.8%</span></span></div>
+    </div>
+    <div class="chart" style="--lw:118px">
+      <h4>어디에서 들어보셨습니까? <small>복수 선택</small></h4>
+      <div class="bar top"><span class="l">도민주주단 활동</span><span class="t"><i style="width:58.5%"></i></span><span class="v"><b>38명</b> <span>58.5%</span></span></div>
+      <div class="bar"><span class="l">GH 홈페이지·SNS</span><span class="t"><i style="width:44.6%"></i></span><span class="v"><b>29명</b> <span>44.6%</span></span></div>
+      <div class="bar"><span class="l">뉴스·언론</span><span class="t"><i style="width:44.6%"></i></span><span class="v"><b>29명</b> <span>44.6%</span></span></div>
+      <div class="bar"><span class="l">부동산·분양 사이트</span><span class="t"><i style="width:18.5%"></i></span><span class="v"><b>12명</b> <span>18.5%</span></span></div>
+      <div class="bar g"><span class="l">들어본 적 없다</span><span class="t"><i style="width:10.8%"></i></span><span class="v"><b>7명</b> <span>10.8%</span></span></div>
+    </div>
+  </div>
+  <div class="insight"><p><b>응답자의 3명 중 2명(66.2%)은 제도를 어느 정도 이상 알고 있습니다.</b> 다만 3명 중 1명은 이름만 들어봤거나 처음 들었다고 답해, 토론 전 GH 발표와 자료집으로 제도를 함께 이해하는 시간이 필요합니다.</p></div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">6</span></div>
+</section>
+
+<!-- 7. 사전조사 2 -->
+<section class="page">
+  <div class="run"><span><b>03 사전조사 결과</b></span><span>필요성 · 청약 의향 · 장점과 우려</span></div>
+  <h3 class="sec">4. 필요성과 청약 의향</h3>
+  <div class="kpis">
+    <div class="kpi"><span class="k">경기도에 필요하다</span><span class="v">80.0<small>%</small></span><span class="s">매우 30.8% + 필요한 편 49.2%</span></div>
+    <div class="kpi"><span class="k">필요하지 않다</span><span class="v" style="color:var(--muted)">10.8<small>%</small></span><span class="s">잘 모르겠다 9.2%</span></div>
+    <div class="kpi"><span class="k">청약할 의향이 있다</span><span class="v">80.0<small>%</small></span><span class="s">매우 29.2% + 있는 편 50.8%</span></div>
+    <div class="kpi"><span class="k">청약 의향이 없다</span><span class="v" style="color:var(--muted)">13.8<small>%</small></span><span class="s">잘 모르겠다 6.2%</span></div>
+  </div>
+  <div class="chart">
+    <h4>경기도에 지분적립형 분양주택이 필요하다고 생각하십니까?</h4>
+    <div class="stack num">
+      <span style="flex:20;background:var(--teal-deep)">매우 20</span><span style="flex:32;background:var(--teal)">필요한 편 32</span><span style="flex:5;background:#c58a7e">5</span><span style="flex:2;background:#9c5a4e">2</span><span style="flex:6;background:#c3cad3;color:var(--ink)">모름 6</span>
+    </div>
+    <h4 style="margin-top:6px">조건이 맞는다면 본인 또는 가족이 청약할 의향이 있으십니까?</h4>
+    <div class="stack num">
+      <span style="flex:19;background:var(--teal-deep)">매우 19</span><span style="flex:33;background:var(--teal)">있는 편 33</span><span style="flex:6;background:#c58a7e">6</span><span style="flex:3;background:#9c5a4e">3</span><span style="flex:4;background:#c3cad3;color:var(--ink)">4</span>
+    </div>
+    <div class="legend"><span><i style="background:var(--teal-deep)"></i>매우 그렇다</span><span><i style="background:var(--teal)"></i>그런 편이다</span><span><i style="background:#c58a7e"></i>아닌 편이다</span><span><i style="background:#9c5a4e"></i>전혀 아니다</span><span><i style="background:#c3cad3"></i>잘 모르겠다</span></div>
+  </div>
+  <h3 class="sec">5. 장점과 우려 <span class="note" style="font-weight:400">(1·2순위 중 한 번이라도 고른 응답자 비율)</span></h3>
+  <div class="two">
+    <div class="chart" style="--lw:150px">
+      <h4>장점</h4>
+      <div class="bar top"><span class="l">입주할 때 초기 자금 부담이 적다</span><span class="t"><i style="width:69.2%"></i></span><span class="v"><b>45명</b> <span>69.2%</span></span></div>
+      <div class="bar"><span class="l">집값을 20~30년에 나누어 마련</span><span class="t"><i style="width:40%"></i></span><span class="v"><b>26명</b> <span>40.0%</span></span></div>
+      <div class="bar"><span class="l">최초 분양가 확정, 가격 변동 없음</span><span class="t"><i style="width:32.3%"></i></span><span class="v"><b>21명</b> <span>32.3%</span></span></div>
+      <div class="bar"><span class="l">공공지분은 전·월세로 안정 거주</span><span class="t"><i style="width:27.7%"></i></span><span class="v"><b>18명</b> <span>27.7%</span></span></div>
+      <div class="bar"><span class="l">공공(GH)이 공급해 믿을 수 있다</span><span class="t"><i style="width:16.9%"></i></span><span class="v"><b>11명</b> <span>16.9%</span></span></div>
+      <div class="bar"><span class="l">전매제한 후 시세대로 매매 가능</span><span class="t"><i style="width:6.2%"></i></span><span class="v"><b>4명</b> <span>6.2%</span></span></div>
+    </div>
+    <div class="chart" style="--lw:150px">
+      <h4>우려</h4>
+      <div class="bar b"><span class="l">전매제한 기간 동안 팔 수 없다</span><span class="t"><i style="width:43.1%"></i></span><span class="v"><b>28명</b> <span>43.1%</span></span></div>
+      <div class="bar b"><span class="l">집값이 떨어져도 정해진 가격으로 지분 매입</span><span class="t"><i style="width:35.4%"></i></span><span class="v"><b>23명</b> <span>35.4%</span></span></div>
+      <div class="bar b"><span class="l">시세차익을 공공과 나눠야 한다</span><span class="t"><i style="width:33.8%"></i></span><span class="v"><b>22명</b> <span>33.8%</span></span></div>
+      <div class="bar b"><span class="l">100% 전까지 온전한 내 집 같지 않다</span><span class="t"><i style="width:27.7%"></i></span><span class="v"><b>18명</b> <span>27.7%</span></span></div>
+      <div class="bar b"><span class="l">임대료까지 더하면 주거비가 크게 줄지 않는다</span><span class="t"><i style="width:24.6%"></i></span><span class="v"><b>16명</b> <span>24.6%</span></span></div>
+      <div class="bar b"><span class="l">4~5년마다 목돈을 마련해야 한다</span><span class="t"><i style="width:24.6%"></i></span><span class="v"><b>16명</b> <span>24.6%</span></span></div>
+    </div>
+  </div>
+  <div class="insight">
+    <p><b>응답자 5명 중 4명이 제도가 필요하고, 조건이 맞으면 청약할 뜻이 있다고 답했습니다.</b></p>
+    <p>가장 큰 장점은 <b>초기 자금 부담이 적다</b>(1순위 50.8%)는 점입니다. 우려는 한 가지에 몰리지 않고 <b>처분 제한</b>, <b>집값 하락 시 가격 부담</b>, <b>시세차익 공유</b>, <b>소유감</b>, <b>주거비·목돈 부담</b>으로 고르게 나뉘었습니다.</p>
+  </div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">7</span></div>
+</section>
+
+<!-- 8. 사전조사 3: 세 조건 -->
+<section class="page">
+  <div class="run"><span><b>03 사전조사 결과</b></span><span>선호하는 주택의 모습 · 세 가지 조건</span></div>
+  <h3 class="sec">6. 세 가지 조건에 대한 선호</h3>
+  <p class="lead">오늘 토론에서 다룰 세 가지 조건을 토론 전에 먼저 물었습니다. 토론 후 같은 질문으로 다시 조사합니다.</p>
+  <div class="chart">
+    <h4>① 취득방식 <small>입주 때 25%를 먼저 취득하고, 나머지 75%를 4번에 나누어 취득한다면?</small></h4>
+    <div class="stack num"><span style="flex:30;background:var(--amber);color:var(--ink)">(가) 앞에서 더 많이 30명 · 46.2%</span><span style="flex:26;background:var(--slate)">(나) 뒤에서 더 많이 26명 · 40.0%</span><span style="flex:9;background:#c3cad3;color:var(--ink)">모름 9</span></div>
+  </div>
+  <div class="chart">
+    <h4>② 면적 <small>입주한다고 가정할 때 선호하는 전용면적은?</small></h4>
+    <div class="stack num"><span style="flex:2;background:#9fd0c8"></span><span style="flex:26;background:#58a59b">40~60㎡ 26명 · 40.0%</span><span style="flex:35;background:var(--teal-deep)">60~85㎡ 35명 · 53.8%</span><span style="flex:2;background:#c3cad3"></span></div>
+    <div class="legend num"><span><i style="background:#9fd0c8"></i>40㎡ 미만 2명 (3.1%)</span><span><i style="background:#58a59b"></i>40㎡ 이상 60㎡ 미만 (약 22~24평형)</span><span><i style="background:var(--teal-deep)"></i>60㎡ 이상 85㎡ 미만 (약 28~34평형)</span><span><i style="background:#c3cad3"></i>잘 모르겠다 2명</span></div>
+  </div>
+  <div class="chart">
+    <h4>③ 지역 <small>어느 지역에 지어지는 것을 선호하십니까?</small></h4>
+    <div class="stack num"><span style="flex:22;background:var(--slate)">신도시 22명 · 33.8%</span><span style="flex:36;background:var(--teal)">구도심 36명 · 55.4%</span><span style="flex:7;background:#c3cad3;color:var(--ink)">모름·기타 7</span></div>
+  </div>
+  <h4 style="margin:4px 0 0;font-size:13px">연령대별로 보면 <span class="note" style="font-weight:400">(단위: 명, 연령대 내 다수 선택에 표시)</span></h4>
+  <div class="tw"><table class="xt">
+    <thead><tr><th rowspan="2">연령대</th><th colspan="2">① 취득방식</th><th colspan="2">② 면적</th><th colspan="2">③ 지역</th></tr>
+      <tr><th>(가) 앞에서</th><th>(나) 뒤에서</th><th>40~60㎡</th><th>60~85㎡</th><th>신도시</th><th>구도심</th></tr></thead>
+    <tbody>
+      <tr><th>20·30대 <span class="note">(26명)</span></th><td>10</td><td class="hi">12</td><td>6</td><td class="hi">18</td><td>6</td><td class="hi">15</td></tr>
+      <tr><th>40·50대 <span class="note">(24명)</span></th><td class="hi">12</td><td>8</td><td>9</td><td class="hi">14</td><td>11</td><td class="hi">12</td></tr>
+      <tr><th>60세 이상 <span class="note">(15명)</span></th><td class="hi">8</td><td>6</td><td class="hi">11</td><td>3</td><td>5</td><td class="hi">9</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chart" style="--lw:200px;margin-top:4px">
+    <h4>세 가지 조건 중 가장 중요하게 생각하는 조건</h4>
+    <div class="bar top"><span class="l">지역 (신도시 또는 구도심)</span><span class="t"><i style="width:47.7%"></i></span><span class="v"><b>31명</b> <span>47.7%</span></span></div>
+    <div class="bar"><span class="l">지분 취득방식 (시기와 비율)</span><span class="t"><i style="width:38.5%"></i></span><span class="v"><b>25명</b> <span>38.5%</span></span></div>
+    <div class="bar"><span class="l">면적</span><span class="t"><i style="width:10.8%"></i></span><span class="v"><b>7명</b> <span>10.8%</span></span></div>
+    <div class="bar g"><span class="l">잘 모르겠다</span><span class="t"><i style="width:3.1%"></i></span><span class="v"><b>2명</b> <span>3.1%</span></span></div>
+  </div>
+  <div class="insight">
+    <p><b>취득방식은 (가) 46.2% 대 (나) 40.0%로 의견이 팽팽해, 오늘 토론의 핵심 쟁점입니다.</b> 20·30대는 (나)를, 40대 이상은 (가)를 조금 더 골랐습니다.</p>
+    <p>면적은 60~85㎡, 지역은 구도심이 많았지만, 60세 이상은 40~60㎡를 선호했고 40·50대는 신도시와 구도심이 거의 반반이었습니다. 가장 중요한 조건으로는 <b>지역</b>을 꼽은 응답이 가장 많았습니다.</p>
+  </div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">8</span></div>
+</section>
+
+<!-- 9. 사전조사 4: 이유 -->
+<section class="page">
+  <div class="run"><span><b>03 사전조사 결과</b></span><span>조건별 선택 이유 (주관식)</span></div>
+  <h3 class="sec">7. 그렇게 고른 이유</h3>
+  <p class="lead">조건마다 선택 이유를 자유롭게 적어 주셨습니다. 비슷한 내용끼리 묶어 정리했고, 인용은 응답 원문을 그대로 옮겼습니다.</p>
+  <div class="voices">
+    <div class="voice a"><h4>① 취득방식 (가) 앞에서 더 많이 <span>30명</span></h4>
+      <ul><li>소득이 있을 때 먼저 갚고, 노후 부담을 줄이고 싶다</li><li>가산이자와 매월 임대료 부담을 줄일 수 있다</li><li>앞으로의 소득이 불확실하다</li></ul>
+      <q>초기 지분취득율을 높이면 매월 부담해야 하는 임대비용 부담을 줄일 수 있다</q>
+      <q>나이 들어 노후에 수입이 없을 것을 대비해서 수입능력 있을 때 많이 부담하는 게 좋을 것 같음</q></div>
+    <div class="voice b"><h4>① 취득방식 (나) 뒤에서 더 많이 <span>26명</span></h4>
+      <ul><li>지금은 초기 목돈이 부족하다</li><li>시간이 지나면 소득이 늘어날 것이다</li><li>물가가 오르면 나중에 내는 돈의 실질 부담이 줄어든다</li></ul>
+      <q>초반에는 소득이 적어 목돈이 적지만, 이후 소득이 증가함에 따라 목돈이 많아져…</q>
+      <q>2~30년 뒤 현금 가치는 현재 현금가치와 동일하지 않을 것이므로</q></div>
+    <div class="voice t"><h4>② 면적 <span>60~85㎡ 35명 · 40~60㎡ 26명</span></h4>
+      <ul><li><b>60~85㎡</b> 가족 구성원·자녀 방, 오래 살 집, “국민평형”은 되어야</li><li><b>40~60㎡</b> 1~2인·소가족에 적당, 분양가와 금융비용을 낮춰야, 나이 들수록 관리가 쉬운 크기</li></ul>
+      <q>방 3개 구조의 30평형대가 자녀방 따로 주고 딱 살기 좋아요</q>
+      <q>분양가 어떻게든 낮춰야 금융비용 줄이지</q></div>
+    <div class="voice t"><h4>③ 지역 <span>구도심 36명 · 신도시 22명</span></h4>
+      <ul><li><b>구도심</b> 교통·병원·학교 등 생활 인프라, 노후 주거지 정비와 연계, 신도시는 다른 공급 방식이 이미 있음</li><li><b>신도시</b> 쾌적한 주거·교육 환경, 계획 단계부터 기반시설과 함께, 진입 장벽을 낮춤</li></ul>
+      <q>신도시는 젊은 부부나 신혼가족들에게는 편리할지 모르겠으나 노년층은 조금 고립되어 가는 느낌</q>
+      <q>최초 계획단계에서부터 개발</q></div>
+  </div>
+  <div class="insight"><p><b>같은 조건을 골라도 이유는 가구 상황에 따라 달랐습니다.</b> 취득방식은 “지금의 목돈”과 “앞으로의 소득” 가운데 무엇을 더 걱정하느냐에 따라, 면적과 지역은 가구 구성과 생애 단계에 따라 선택이 갈렸습니다. 그룹토론에서는 이 이유의 차이를 중심으로 이야기합니다.</p></div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">9</span></div>
+</section>
+
+<!-- 10. 사전조사 5: GH 역할 -->
+<section class="page">
+  <div class="run"><span><b>03 사전조사 결과</b></span><span>GH의 역할 · 토론회에 바라는 점</span></div>
+  <h3 class="sec">8. 제도가 자리 잡으려면 GH가 먼저 해야 할 일</h3>
+  <div class="chart" style="--lw:260px">
+    <div class="bar top"><span class="l">(비용) 임대료 등 입주자의 주거비 부담 완화</span><span class="t"><i style="width:30.8%"></i></span><span class="v"><b>20명</b> <span>30.8%</span></span></div>
+    <div class="bar top"><span class="l">(입지·품질) 교통·생활 인프라가 좋은 입지와 주거 품질</span><span class="t"><i style="width:30.8%"></i></span><span class="v"><b>20명</b> <span>30.8%</span></span></div>
+    <div class="bar"><span class="l">(물량 확보) 지자체와 협력해 공급 부지·물량 확보</span><span class="t"><i style="width:21.5%"></i></span><span class="v"><b>14명</b> <span>21.5%</span></span></div>
+    <div class="bar"><span class="l">(브랜드 관리) 입주자와 소통하고 불편 개선</span><span class="t"><i style="width:7.7%"></i></span><span class="v"><b>5명</b> <span>7.7%</span></span></div>
+    <div class="bar"><span class="l">(홍보) 제도를 쉽게 안내하고 정보 투명 공개</span><span class="t"><i style="width:7.7%"></i></span><span class="v"><b>5명</b> <span>7.7%</span></span></div>
+  </div>
+  <div class="voices">
+    <div class="voice t"><h4>비용을 고른 이유</h4><q>매달 나가는 주거비가 비싸면 4~5년마다 돌아오는 추가 지분 살 목돈을, 정년퇴직한 노년층에서는 모을 수가 없음</q><q>아무리 좋고 홍보를 잘해도 임대료 등이 부담스러우면 계속하기 힘드니까</q></div>
+    <div class="voice t"><h4>입지·품질과 물량을 고른 이유</h4><q>정책이 아무리 좋아도 비선호 입지는 주택가격 상승 기대감이 없음</q><q>1개 단지라고 해봐야 300~1천 세대인데, 너무 규모가 적어서 사업의 지속성이 우려됨</q></div>
+  </div>
+  <h3 class="sec">9. 토론회에서 가장 듣고 싶은 내용 <span class="note" style="font-weight:400">(2개까지 선택)</span></h3>
+  <div class="chart" style="--lw:200px">
+    <div class="bar top"><span class="l">제도의 구체적인 내용</span><span class="t"><i style="width:76.9%"></i></span><span class="v"><b>50명</b> <span>76.9%</span></span></div>
+    <div class="bar"><span class="l">GH의 향후 공급 계획</span><span class="t"><i style="width:64.6%"></i></span><span class="v"><b>42명</b> <span>64.6%</span></span></div>
+    <div class="bar"><span class="l">내 상황에 맞는 자금 계획 예시</span><span class="t"><i style="width:18.5%"></i></span><span class="v"><b>12명</b> <span>18.5%</span></span></div>
+    <div class="bar"><span class="l">다른 도민의 의견</span><span class="t"><i style="width:10.8%"></i></span><span class="v"><b>7명</b> <span>10.8%</span></span></div>
+  </div>
+  <h3 class="sec">10. 사전조사로 본 오늘의 토론 쟁점</h3>
+  <div class="issues">
+    <div class="issue"><b>취득방식</b><p>초기 부담을 줄일 것인가, 장기 부담을 줄일 것인가<small>(가)와 (나)가 46 : 40으로 맞서고, 연령대에 따라 선택이 갈립니다.</small></p></div>
+    <div class="issue"><b>면적</b><p>가구 규모와 분양가 부담 사이의 균형<small>넓을수록 지분 적립 총액이 커집니다. 1~2인 가구와 자녀 가구의 필요가 다릅니다.</small></p></div>
+    <div class="issue"><b>지역</b><p>생활 인프라가 갖춰진 구도심인가, 계획된 신도시인가<small>가장 중요한 조건으로 가장 많이 꼽혔습니다.</small></p></div>
+  </div>
+  <div class="note">※ 사전질의(구체적 공급 후보지, 자금 계획 시나리오, 집값 하락 시 대책, 중장년 무주택자 신청 가능 여부 등)는 GH에 전달해 발표와 질의응답에 반영을 요청했습니다.</div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">10</span></div>
+</section>
+
+<!-- 11. 발표자료 1 -->
+<section class="page" id="learn">
+  <div class="run"><span><b>04 발표자료</b></span><span>지분적립형 분양주택 제도와 조건별 특징</span></div>
+  <div class="chap"><span class="no">04</span><div><div class="en">Briefing · GH 주거전략부</div><h2>발표자료</h2></div></div>
+  <p class="src">이 장은 GH 주거전략부의 사전 설명자료(「지분적립형 분양주택 안내」 인포그래픽, 2026. 10. 14.)를 바탕으로 자료집에 맞게 재구성했습니다. 현장 발표 내용은 당일 일부 달라질 수 있습니다.</p>
+  <div class="hero">
+    <span class="lbl">지분적립형 분양주택이란</span>
+    <h3>적금 들듯 주택 지분을 쌓아<br><em>100% 내 집</em>으로</h3>
+    <p>입주할 때 분양가의 10~25%만 취득하고, 거주하면서 4~5년마다 나누어 취득해 20년 또는 30년에 걸쳐 온전한 내 집을 만드는 주택 공급 방식입니다.</p>
+  </div>
+  <div class="trio">
+    <div><span class="k">입주할 때 취득하는 지분</span><span class="v num">10~25<small>%</small></span><span class="s">최초 분양가 기준, 나머지는 공공이 보유</span></div>
+    <div><span class="k">지분을 추가로 취득하는 주기</span><span class="v num">4~5<small>년마다</small></span><span class="s">남은 지분을 나누어 취득</span></div>
+    <div><span class="k">지분 100%를 채우는 시점</span><span class="v num">20·30<small>년</small></span><span class="s">운영기간이 끝나면 온전한 소유권 확보</span></div>
+  </div>
+  <h3 class="sec">내가 내는 돈은 세 가지로 구성됩니다</h3>
+  <div class="pay">
+    <div class="c me"><span class="i">① 지분 취득 금액</span><b>최초 분양가 × 취득 비율</b><p>입주 때 분양가의 10~25%를 내고, 이후 나눠서 취득할 때도 최초 분양가를 기준으로 합니다.</p></div>
+    <span class="plus">+</span>
+    <div class="c me"><span class="i">② 이자</span><b>지분 취득에 대한 가산이자</b><p>나중에 취득하는 지분에 붙는 이자로, 1년 만기 정기예금 금리 수준입니다.</p></div>
+    <span class="plus">+</span>
+    <div class="c"><span class="i">③ 공공지분 사용료</span><b>아직 취득하지 않은 지분의 임차료</b><p>보증금 또는 월세로 내며, 전세 시세의 약 80% 이하 수준입니다. 지분을 늘릴수록 줄어듭니다.</p></div>
+  </div>
+  <div class="note">※ 위 내용은 현행 법령(2026년 9월 기준)에 근거합니다. 세부 조건은 사업지구에 따라 달라질 수 있습니다.</div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">11</span></div>
+</section>
+
+<!-- 12. 발표자료 2 -->
+<section class="page">
+  <div class="run"><span><b>04 발표자료</b></span><span>지분 취득 시뮬레이션 · 이용 흐름</span></div>
+  <h3 class="sec">내 집이 채워지는 과정 <span class="note" style="font-weight:400">예시(안) · 초기 25%, 5년마다 취득</span></h3>
+  <svg viewBox="0 0 660 270" width="100%" role="img" aria-label="입주 25%, 5년차 45%, 10년차 65%, 15년차 85%, 20년차 100% 지분 취득 예시">
+    <g font-size="12" fill="#5a6575">
+      <line x1="56" y1="20" x2="640" y2="20" stroke="#d6dce4"/><text x="46" y="24" text-anchor="end">100%</text>
+      <line x1="56" y1="70" x2="640" y2="70" stroke="#eef1f4"/><text x="46" y="74" text-anchor="end">75%</text>
+      <line x1="56" y1="120" x2="640" y2="120" stroke="#eef1f4"/><text x="46" y="124" text-anchor="end">50%</text>
+      <line x1="56" y1="170" x2="640" y2="170" stroke="#eef1f4"/><text x="46" y="174" text-anchor="end">25%</text>
+      <line x1="56" y1="220" x2="640" y2="220" stroke="#1b2433"/><text x="46" y="224" text-anchor="end">0%</text>
+    </g>
+    <!-- 막대: 폭 80, 간격 (584-5*80)/4=46 → x=56+12, … -->
+    <g>
+      <rect x="68" y="20" width="80" height="150" fill="#c9d3de"/><rect x="68" y="170" width="80" height="50" fill="#e39a1a"/>
+      <rect x="194" y="20" width="80" height="110" fill="#c9d3de"/><rect x="194" y="130" width="80" height="90" fill="#e39a1a"/>
+      <rect x="320" y="20" width="80" height="70" fill="#c9d3de"/><rect x="320" y="90" width="80" height="130" fill="#e39a1a"/>
+      <rect x="446" y="20" width="80" height="30" fill="#c9d3de"/><rect x="446" y="50" width="80" height="170" fill="#e39a1a"/>
+      <rect x="572" y="20" width="80" height="200" fill="#e39a1a"/>
+    </g>
+    <g font-size="15" font-weight="900" fill="#1b2433" text-anchor="middle">
+      <text x="108" y="200">25%</text><text x="234" y="180">45%</text><text x="360" y="160">65%</text><text x="486" y="140">85%</text><text x="612" y="125">100%</text>
+    </g>
+    <g font-size="12.5" fill="#1b2433" text-anchor="middle" font-weight="700">
+      <text x="108" y="242">입주</text><text x="234" y="242">5년차</text><text x="360" y="242">10년차</text><text x="486" y="242">15년차</text><text x="612" y="242">20년차 · 완성</text>
+    </g>
+    <g font-size="11" fill="#5a6575" text-anchor="middle">
+      <text x="108" y="260">+25%</text><text x="234" y="260">+20%</text><text x="360" y="260">+20%</text><text x="486" y="260">+20%</text><text x="612" y="260">+15%</text>
+    </g>
+  </svg>
+  <div class="legend"><span><i style="background:var(--amber)"></i>내 지분 (취득할수록 채워짐)</span><span><i style="background:var(--public)"></i>공공 지분 (취득할수록 줄어듦 · 이 부분에 사용료를 냄)</span></div>
+  <h3 class="sec">이용 흐름 · 4단계</h3>
+  <div class="steps">
+    <div><span class="s">STEP 1</span><b>입주</b><p>초기 지분 취득<br>(분양가의 10~25%)</p></div>
+    <div><span class="s">STEP 2</span><b>거주</b><p>실거주 의무 5년</p></div>
+    <div><span class="s">STEP 3</span><b>100% 취득</b><p>운영기간<br>20년 또는 30년</p></div>
+    <div><span class="s">STEP 4</span><b>처분</b><p>전매제한 해제 후<br>보유 지분 매각 가능</p></div>
+  </div>
+  <h3 class="sec">꼭 확인해야 할 두 가지</h3>
+  <div class="alert">
+    <div><b>전매제한</b><p>입주 후 7년(입주자 선정일로부터 10년)까지는 제3자에게 팔 수 없습니다.</p></div>
+    <div><b>처분가격 배분</b><p>전매제한 기간이 지나면 제3자에게 매각할 수 있고, 수익이 생기면 지분 비율에 따라 공공과 나눕니다.</p></div>
+  </div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">12</span></div>
+</section>
+
+<!-- 13. 발표자료 3: 조건 비교 -->
+<section class="page">
+  <div class="run"><span><b>04 발표자료</b></span><span>토론 조건 한눈에 보기</span></div>
+  <h3 class="sec">조건 ① 취득방식, 무엇이 다를까</h3>
+  <p class="lead">두 방식 모두 입주 때 25%를 취득하고 20년차에 100%가 됩니다. 중간에 얼마씩 취득하느냐가 다릅니다. (5년 주기 가정)</p>
+  <svg viewBox="0 0 660 250" width="100%" role="img" aria-label="(가) 25·45·65·85·100%, (나) 25·40·55·75·100% 누적 지분 비교">
+    <g font-size="12" fill="#5a6575">
+      <line x1="56" y1="20" x2="630" y2="20" stroke="#d6dce4"/><text x="46" y="24" text-anchor="end">100%</text>
+      <line x1="56" y1="70" x2="630" y2="70" stroke="#eef1f4"/><text x="46" y="74" text-anchor="end">75%</text>
+      <line x1="56" y1="120" x2="630" y2="120" stroke="#eef1f4"/><text x="46" y="124" text-anchor="end">50%</text>
+      <line x1="56" y1="170" x2="630" y2="170" stroke="#eef1f4"/><text x="46" y="174" text-anchor="end">25%</text>
+      <line x1="56" y1="220" x2="630" y2="220" stroke="#1b2433"/><text x="46" y="224" text-anchor="end">0%</text>
+    </g>
+    <g font-size="12" fill="#1b2433" text-anchor="middle" font-weight="700">
+      <text x="90" y="242">입주</text><text x="225" y="242">5년차</text><text x="360" y="242">10년차</text><text x="495" y="242">15년차</text><text x="610" y="242">20년차</text>
+    </g>
+    <!-- y = 220 - 2*pct -->
+    <polygon points="90,170 225,130 360,90 495,50 610,20 610,20 495,70 360,110 225,140 90,170" fill="#fbefd8"/>
+    <polyline points="90,170 225,130 360,90 495,50 610,20" fill="none" stroke="#e39a1a" stroke-width="3"/>
+    <polyline points="90,170 225,140 360,110 495,70 610,20" fill="none" stroke="#4767a8" stroke-width="3" stroke-dasharray="7 4"/>
+    <g fill="#e39a1a"><circle cx="90" cy="170" r="5"/><circle cx="225" cy="130" r="5"/><circle cx="360" cy="90" r="5"/><circle cx="495" cy="50" r="5"/><circle cx="610" cy="20" r="5"/></g>
+    <g fill="#4767a8"><circle cx="225" cy="140" r="5"/><circle cx="360" cy="110" r="5"/><circle cx="495" cy="70" r="5"/></g>
+    <g font-size="12" font-weight="700">
+      <text x="225" y="120" fill="#a86c00" text-anchor="middle">45%</text><text x="360" y="80" fill="#a86c00" text-anchor="middle">65%</text><text x="495" y="40" fill="#a86c00" text-anchor="middle">85%</text>
+      <text x="225" y="160" fill="#4767a8" text-anchor="middle">40%</text><text x="360" y="130" fill="#4767a8" text-anchor="middle">55%</text><text x="495" y="90" fill="#4767a8" text-anchor="middle">75%</text>
+      <text x="90" y="190" fill="#1b2433" text-anchor="middle">25%</text><text x="610" y="40" fill="#1b2433" text-anchor="middle">100%</text>
+    </g>
+  </svg>
+  <div class="tw"><table class="cmp">
+    <thead><tr><th style="width:96px"></th><th style="background:var(--amber);border-color:var(--amber);color:var(--ink)">(가) 초기에 많이 → 점차 줄여가기</th><th style="background:var(--slate);border-color:var(--slate)">(나) 초기에 적게 → 점차 늘려가기</th></tr></thead>
+    <tbody>
+      <tr><th>취득 비율</th><td class="num"><b>25 → 20 → 20 → 20 → 15%</b></td><td class="num"><b>25 → 15 → 15 → 20 → 25%</b></td></tr>
+      <tr><th>부담이 큰 시기</th><td>입주 후 초·중반</td><td>운영기간 후반</td></tr>
+      <tr><th>공공지분 사용료</th><td>내 지분이 빨리 늘어 상대적으로 빨리 줄어듦</td><td>공공 지분이 더 오래 남아 상대적으로 천천히 줄어듦</td></tr>
+      <tr><th>가산이자</th><td>나중에 취득하는 지분이 적어 상대적으로 작음</td><td>나중에 취득하는 지분이 많아 상대적으로 큼</td></tr>
+      <tr><th>이런 분께</th><td>지금 목돈 여력이 있거나, 은퇴 등으로 후반 소득이 줄어들 가구</td><td>지금 목돈이 부족하고, 앞으로 소득이 늘어날 것으로 보는 가구</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">※ 사용료·가산이자 비교는 두 방식의 취득 일정에서 나오는 상대적 차이를 설명한 것으로, 실제 금액은 분양가·금리·시세에 따라 달라집니다. GH 검토 후 확정합니다.</div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">13</span></div>
+</section>
+
+<!-- 14. 발표자료 4: 면적·지역·요약·용어 -->
+<section class="page">
+  <div class="run"><span><b>04 발표자료</b></span><span>면적 · 지역 · 주요 조건 요약 · 용어</span></div>
+  <div class="two">
+    <div class="box"><h4>조건 ② 면적</h4>
+      <div class="tw"><table class="cmp"><tbody>
+        <tr><th>(가) 40㎡ 미만</th><td>약 15평형 미만 · 1~2인 가구</td></tr>
+        <tr><th>(나) 40~60㎡</th><td>약 22~24평형 · 소가족</td></tr>
+        <tr><th>(다) 60~85㎡</th><td>약 28~34평형 · 자녀 가구</td></tr>
+      </tbody></table></div>
+      <p class="note">면적이 클수록 분양가가 높아져, 지분을 채우는 데 필요한 총액도 커집니다.</p></div>
+    <div class="box"><h4>조건 ③ 지역</h4>
+      <div class="tw"><table class="cmp"><tbody>
+        <tr><th>(가) 신도시</th><td>신축·계획된 기반시설을 기대할 수 있지만, 입주 초기에는 생활 인프라가 덜 갖춰질 수 있음</td></tr>
+        <tr><th>(나) 구도심</th><td>교통·생활 인프라가 갖춰져 있지만, 주거환경 개선이 필요한 곳이 많음</td></tr>
+      </tbody></table></div></div>
+  </div>
+  <h3 class="sec">주요 조건 요약</h3>
+  <div class="tw"><table>
+    <tbody>
+      <tr><th style="width:120px">정의</th><td>적금 들듯이 주택 지분을 조금씩 매입해 내 집을 마련하는 주택</td></tr>
+      <tr><th>분양가격</th><td>분양가상한제 적용</td></tr>
+      <tr><th>임차료</th><td>미취득 지분에 대해 부담 · 전세 시세의 약 80% 이하 (보증금 또는 월세)</td></tr>
+      <tr><th>운영기간</th><td>20년 또는 30년</td></tr>
+      <tr><th>실거주 의무</th><td>5년</td></tr>
+      <tr><th>전매제한</th><td>입주 후 7년 (입주자 선정일로부터 10년)</td></tr>
+      <tr><th>처분방법</th><td>전매제한 기간 이후 제3자에게 보유 지분 매각 가능 · 수익은 지분 비율에 따라 공공과 배분</td></tr>
+    </tbody>
+  </table></div>
+  <h3 class="sec">알아두면 좋은 용어</h3>
+  <div class="gloss">
+    <div><b>지분</b>주택 한 채의 소유권을 비율로 나눈 몫. 내 지분과 공공 지분을 합하면 100%입니다.</div>
+    <div><b>공공 지분</b>아직 내가 취득하지 않아 GH(공공)가 보유한 지분입니다.</div>
+    <div><b>공공지분 사용료(임차료)</b>공공 지분 부분에 대해 내는 보증금 또는 월세입니다.</div>
+    <div><b>가산이자</b>지분을 나중에 취득할 때 최초 분양가에 더해 내는 이자로, 1년 만기 정기예금 금리 수준입니다.</div>
+    <div><b>분양가상한제</b>분양가격을 정해진 기준 이하로 정하는 제도입니다.</div>
+    <div><b>전매제한</b>정해진 기간 동안 주택을 다른 사람에게 팔 수 없도록 한 제한입니다.</div>
+    <div><b>실거주 의무</b>입주 후 정해진 기간(5년) 동안 직접 거주해야 하는 의무입니다.</div>
+    <div><b>운영기간</b>지분을 나누어 취득해 100%를 채우는 기간(20년 또는 30년)입니다.</div>
+  </div>
+  <div class="foot"><span>GH 제2기 도민주주단 「제1회 정책토론회」 자료집</span><span class="pg">14</span></div>
+</section>
+
+</div>
